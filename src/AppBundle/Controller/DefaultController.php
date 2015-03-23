@@ -128,4 +128,27 @@ class DefaultController extends Controller
         $json = array("posts" => $data, "count" =>count($data) );
         return new JsonResponse($json);
     }
+
+    /**
+     * @Route("/api/posts/id/{id}", name="_posts_id")
+     */
+    public function postsById($id = 0)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $publics = $em->getRepository(Vdm::CLASS_NAME)->findById($id);
+
+        $data = array();
+        foreach($publics as $vdm ) {
+            $vdmJson = array(
+                "id" => $vdm->getId(),
+                "content" => $vdm->getContent(),
+                "date" => $vdm->getWhen()->format("Y-m-d H:i:s"),
+                "author" => $vdm->getAuthor(),
+            );
+            array_push($data, $vdmJson);
+        }
+
+        $json = array("posts" => $data, "count" =>count($data) );
+        return new JsonResponse($json);
+    }
 }
