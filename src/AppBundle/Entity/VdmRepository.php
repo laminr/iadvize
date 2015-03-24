@@ -19,13 +19,12 @@ class VdmRepository extends EntityRepository {
     public function findOverPeriod($from, $to) {
 
         $sql = 'SELECT vdm FROM '.Vdm::CLASS_NAME.' vdm ';
-        $sql .= 'WHERE vdm.when >= :from ';
-        $sql .= 'AND vdm.when <= :to ';
+        $sql .= 'WHERE vdm.when BETWEEN :from AND :to ';
         $sql .= 'ORDER BY vdm.when ASC';
 
         $query = $this->getEntityManager()->createQuery($sql);
-        $query->setParameter(':from', $from);
-        $query->setParameter(':to', $to);
+        $query->setParameter(':from', $from." 00:00");
+        $query->setParameter(':to', $to." 23:59");
 
         return $query->getResult();
     }
