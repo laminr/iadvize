@@ -57,7 +57,7 @@ class DefaultController extends Controller
 
             $html = $curl->getData( $urlHome.($howMany >0 ? "?page=".$howMany : ""));
             $crawler = new Crawler($html);
-            //*
+
             $crawler = $crawler->filter('.wrapper div.post.article');
             foreach ($crawler as $node) {
 
