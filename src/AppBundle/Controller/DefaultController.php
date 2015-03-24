@@ -14,10 +14,23 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class DefaultController extends Controller
 {
 
+
+    /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $publics = $em->getRepository(Vdm::CLASS_NAME)->findAll();
+
+
+        return $this->render('AppBundle::index.html.twig', array("me" => "Thibault"));
+    }
+
     /**
      * @Route("/app/example", name="homepage")
      */
-    public function indexAction()
+    public function exampleAction()
     {
         $em = $this->getDoctrine()->getManager();
         $publics = $em->getRepository(Vdm::CLASS_NAME)->findAll();
@@ -27,12 +40,11 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/app/parse", name="parse")
+     * @Route("/api/parse", name="parse")
      */
     public function parseAction()
     {
         $urlHome = "http://www.viedemerde.fr/";
-
 
         // empty the database
         $em = $this->getDoctrine()->getManager();
@@ -41,7 +53,7 @@ class DefaultController extends Controller
         $curl = new CurlManager();
 
         $howMany = 0;
-        while ($howMany <= 200) {
+        while ($howMany < 200) {
 
             $html = $curl->getData( $urlHome.($howMany >0 ? "?page=".$howMany : ""));
             $crawler = new Crawler($html);
@@ -52,12 +64,13 @@ class DefaultController extends Controller
                 $vdm = VdmBusiness::parseOneVdm($node);
                 $em->persist($vdm);
                 $em->flush();
+
                 $howMany++;
                 if ($howMany == 200) break;
             }
         }
 
-        return $this->render('default/index.html.twig');
+        return $this->render('AppBundle::index.html.twig');
     }
 
     /**
