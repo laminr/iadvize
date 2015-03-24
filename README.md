@@ -1,4 +1,5 @@
-#Test - Développeur PHP iAdvize
+
+ #Test - Développeur PHP iAdvize
 ##Description du test
 
 Ce test a pour but de mettre en oeuvre une application permettant 2 choses :
@@ -9,25 +10,26 @@ Ce test a pour but de mettre en oeuvre une application permettant 2 choses :
 
 (voir la description de l’API attendue ci-dessous)
 
-● Vous devez utiliser un framework PHP de votre choix
-● Vous avez le choix dans la méthode ou le procédé de stockage
-● Vous devez utiliser GIT pour versionner vos fichiers
-● Vous devez utiliser Composer pour gérer vos dépendances
-● Vous devez tester unitairement votre code
-● Vous devez mettre à disposition votre code via Github
-● Vous ne devez pas utiliser l’API du site “Vie de Merde” pour récuperer les informations
+* Vous devez utiliser un framework PHP de votre choix
+* Vous avez le choix dans la méthode ou le procédé de stockage
+* Vous devez utiliser GIT pour versionner vos fichiers
+* Vous devez utiliser Composer pour gérer vos dépendances
+* Vous devez tester unitairement votre code
+* Vous devez mettre à disposition votre code via Github
+* Vous ne devez pas utiliser l’API du site “Vie de Merde” pour récuperer les informations
 
-#2
-● La description fonctionnelle via BeHat serait un plus
-● Si vous ne parvenez pas à utiliser l’ensemble des eléments requis, n’hésitez pas à présenter tout de même votre test dans sa version la plus aboutie.
-● Vous disposez du temps dont vous avez besoin à la bonne réalisation du test
+###Note: 
 
-#3
-Description de l’API
-/api/posts
+* La description fonctionnelle via BeHat serait un plus
+* Si vous ne parvenez pas à utiliser l’ensemble des eléments requis, n’hésitez pas à présenter tout de même votre test dans sa version la plus aboutie.
+* Vous disposez du temps dont vous avez besoin à la bonne réalisation du test
 
-Sortie souhaitée :
+##Description de l’API
+#### /api/posts
 
+##### Sortie souhaitée :
+
+```javascript
 {
     "posts":[
         {
@@ -39,20 +41,24 @@ Sortie souhaitée :
     ],
     "count":1
 }
+```
 
-Paramètres :
+##### Paramètres :
 
-● from (optionnel) ­ Date de début
-● to (optionnel) ­ Date de fin
-● author (optionnel) ­ Auteur
+* from (optionnel) ­ Date de début
+* to (optionnel) ­ Date de fin
+* author (optionnel) ­ Auteur
 
-Utilisation :
-● /api/posts
-● /api/posts?from=2014­01­01&to=2014­12­31
-● /api/posts?author=Genius
+##### Utilisation :
 
-/api/posts/<id>
-Sortie souhaitée :
+* /api/posts
+* /api/posts?from=2014­01­01&to=2014­12­31
+* /api/posts?author=Genius
+
+####/api/posts/&lt;id/&gt;
+
+##### Sortie souhaitée :
+```javascript
 {
     "post":{
         "id":1,
@@ -61,3 +67,4 @@ Sortie souhaitée :
         "author":"Genius"
     }
 }
+```
