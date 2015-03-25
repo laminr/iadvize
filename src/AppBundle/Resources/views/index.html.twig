@@ -3,5 +3,11 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-    Homepage.
+    Welcome !
+    <div>
+        <a href="{{ path('_parse') }}">Récupération de VDM</a>
+    </div>
+    <div>
+        <a href="{{ path('_vdm') }}">Liste des VDM</a>
+    </div>
 {% endblock %}

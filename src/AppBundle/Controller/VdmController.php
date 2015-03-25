@@ -21,7 +21,7 @@ class VdmController extends Controller
     /**
      * Lists all Vdm entities.
      *
-     * @Route("/", name="vdm")
+     * @Route("/", name="_vdm")
      * @Method("GET")
      * @Template()
      */
