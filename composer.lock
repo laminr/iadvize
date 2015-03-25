@@ -997,17 +997,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.18",
+            "version": "v3.0.19",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "ac026149ffb1d3a5c893290d2d3ca8795013de08"
+                "reference": "c68d47e3bcdfca74d92ab9d9382e276adf451424"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ac026149ffb1d3a5c893290d2d3ca8795013de08",
-                "reference": "ac026149ffb1d3a5c893290d2d3ca8795013de08",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/c68d47e3bcdfca74d92ab9d9382e276adf451424",
+                "reference": "c68d47e3bcdfca74d92ab9d9382e276adf451424",
                 "shasum": ""
             },
             "require": {
@@ -1053,21 +1053,21 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-02-27 12:59:18"
+            "time": "2015-03-25 09:01:40"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "a72ce75a73d86c3593eceed5650b58fd3807a0cf"
+                "reference": "1c3ed356bd1ff67cd71806efbb71511644035c85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a72ce75a73d86c3593eceed5650b58fd3807a0cf",
-                "reference": "a72ce75a73d86c3593eceed5650b58fd3807a0cf",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/1c3ed356bd1ff67cd71806efbb71511644035c85",
+                "reference": "1c3ed356bd1ff67cd71806efbb71511644035c85",
                 "shasum": ""
             },
             "require": {
@@ -1108,7 +1108,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-02-05 07:39:23"
+            "time": "2015-03-24 15:12:07"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -1279,12 +1279,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "53a8f2a8629a60e4e69b8bdf369126ec31aa7299"
+                "reference": "37a78249e7b013459d05c836d4cc9011f15d20d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/53a8f2a8629a60e4e69b8bdf369126ec31aa7299",
-                "reference": "53a8f2a8629a60e4e69b8bdf369126ec31aa7299",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/37a78249e7b013459d05c836d4cc9011f15d20d5",
+                "reference": "37a78249e7b013459d05c836d4cc9011f15d20d5",
                 "shasum": ""
             },
             "require": {
@@ -1324,7 +1324,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-21 13:23:59"
+            "time": "2015-03-24 17:09:17"
         },
         {
             "name": "symfony/dom-crawler",
@@ -1333,12 +1333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "0f4321599faaaab0159b5a24055c347903a0e3b8"
+                "reference": "1d357922e805ab5320cc83084055b28481e073ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/0f4321599faaaab0159b5a24055c347903a0e3b8",
-                "reference": "0f4321599faaaab0159b5a24055c347903a0e3b8",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/1d357922e805ab5320cc83084055b28481e073ce",
+                "reference": "1d357922e805ab5320cc83084055b28481e073ce",
                 "shasum": ""
             },
             "require": {
@@ -1378,7 +1378,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2015-03-13 10:36:02"
+            "time": "2015-03-24 17:09:17"
         },
         {
             "name": "symfony/monolog-bundle",
