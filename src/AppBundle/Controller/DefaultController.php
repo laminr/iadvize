@@ -64,7 +64,7 @@ class DefaultController extends Controller
             foreach ($crawler as $node) {
 
                 $vdm = VdmBusiness::parseOneVdm($node);
-                if ($vdm->getText() != "") {
+                if ($vdm->getContent() != "") {
                     $em->persist($vdm);
                     $em->flush();
                 }
@@ -74,7 +74,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->render('AppBundle::index.html.twig');
+        return $this->redirect($this->generateUrl('_vdm'));
     }
 
     /**

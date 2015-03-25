@@ -13,7 +13,7 @@ use AppBundle\Entity\Vdm;
 
 class ApiBusiness {
 
-    public static function vdmApiFormat(Vdm $vdm) {
+    public static function vdmToApiFormat(Vdm $vdm) {
 
         return $vdmJson = array(
             "id" => $vdm->getId(),
