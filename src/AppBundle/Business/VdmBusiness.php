@@ -50,7 +50,7 @@ class VdmBusiness {
         }
 
         $vdm = new Vdm();
-        $vdm->setContent($text);
+        $vdm->setContent(trim($text);
         $vdm->setAuthor($who);
         $vdm->setWhen($when);
 

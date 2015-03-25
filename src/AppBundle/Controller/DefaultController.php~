@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Business\VdmBusiness;
-use AppBundle\Business\ApiBusiness;
 use AppBundle\Entity\Vdm;
 use AppBundle\Manager\CurlManager;
 use Symfony\Component\DomCrawler\Crawler;
@@ -17,11 +16,10 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/", name="_homepage")
+     * @Route("/", name="homepage")
      */
     public function indexAction()
     {
-
         $em = $this->getDoctrine()->getManager();
         $publics = $em->getRepository(Vdm::CLASS_NAME)->findAll();
 
@@ -30,7 +28,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/app/example", name="_example_homepage")
+     * @Route("/app/example", name="homepage")
      */
     public function exampleAction()
     {
@@ -42,7 +40,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/api/parse", name="_parse")
+     * @Route("/api/parse", name="parse")
      */
     public function parseAction()
     {
@@ -64,11 +62,9 @@ class DefaultController extends Controller
             foreach ($crawler as $node) {
 
                 $vdm = VdmBusiness::parseOneVdm($node);
-                if ($vdm->getText() != "") {
-                    $em->persist($vdm);
-                    $em->flush();
-                }
-                
+                $em->persist($vdm);
+                $em->flush();
+
                 $howMany++;
                 if ($howMany == 200) break;
             }
@@ -87,7 +83,13 @@ class DefaultController extends Controller
 
         $data = array();
         foreach($publics as $vdm ) {
-            array_push($data, ApiBusiness::vdmToApiFormat($vdm));
+            $vdmJson = array(
+                "id" => $vdm->getId(),
+                "content" => $vdm->getContent(),
+                "date" => $vdm->getWhen()->format("Y-m-d H:i:s"),
+                "author" => $vdm->getAuthor(),
+            );
+            array_push($data, $vdmJson);
         }
 
         $json = array("posts" => $data, "count" =>count($data) );
@@ -104,7 +106,13 @@ class DefaultController extends Controller
 
         $data = array();
         foreach($publics as $vdm ) {
-            array_push($data, ApiBusiness::vdmToApiFormat($vdm));
+            $vdmJson = array(
+                "id" => $vdm->getId(),
+                "content" => $vdm->getContent(),
+                "date" => $vdm->getWhen()->format("Y-m-d H:i:s"),
+                "author" => $vdm->getAuthor(),
+            );
+            array_push($data, $vdmJson);
         }
 
         $json = array("posts" => $data, "count" =>count($data) );
@@ -121,7 +129,13 @@ class DefaultController extends Controller
 
         $data = array();
         foreach($publics as $vdm ) {
-            array_push($data, ApiBusiness::vdmToApiFormat($vdm));
+            $vdmJson = array(
+                "id" => $vdm->getId(),
+                "content" => $vdm->getContent(),
+                "date" => $vdm->getWhen()->format("Y-m-d H:i:s"),
+                "author" => $vdm->getAuthor(),
+            );
+            array_push($data, $vdmJson);
         }
 
         $json = array("posts" => $data, "count" =>count($data) );
@@ -138,7 +152,13 @@ class DefaultController extends Controller
 
         $data = array();
         foreach($publics as $vdm ) {
-            array_push($data, ApiBusiness::vdmToApiFormat($vdm));
+            $vdmJson = array(
+                "id" => $vdm->getId(),
+                "content" => $vdm->getContent(),
+                "date" => $vdm->getWhen()->format("Y-m-d H:i:s"),
+                "author" => $vdm->getAuthor(),
+            );
+            array_push($data, $vdmJson);
         }
 
         $json = array("posts" => $data, "count" =>count($data) );
