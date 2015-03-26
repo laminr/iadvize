@@ -11,6 +11,7 @@ use Symfony\Component\DomCrawler\Crawler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -80,8 +81,26 @@ class DefaultController extends Controller
     /**
      * @Route("/api/posts", name="_posts")
      */
-    public function postsAction()
+    public function postsAction(Request $request)
     {
+        // redirect for dates
+        $getFrom = $request->query->get('from');
+        if (isset($getFrom)) {
+            return $this->redirect(
+                $this->generateUrl(
+                    '_posts_with_date',
+                    array("from" => $getFrom, "to" => $request->query->get('to'))
+                )
+            );
+        }
+        // redirect for author
+        $author = $request->query->get('author');
+        if (isset($author)) {
+            return $this->redirect(
+                $this->generateUrl('_posts_author', array("author" => $author))
+            );
+        }
+
         $em = $this->getDoctrine()->getManager();
         $publics = $em->getRepository(Vdm::CLASS_NAME)->findAll();
 
