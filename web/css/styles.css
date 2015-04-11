@@ -5,6 +5,8 @@ header {
   padding: 10px;
   background-color: #000000;
   min-height: 55px;
+  border-bottom: 2px solid #F2F2F2;
+  position: relative;
 }
 .vdm {
   padding: 10px 10px 30px 10px;
@@ -46,8 +48,12 @@ header {
   background-color: #922598;
   border-color: #65006B;
 }
+.btn-iAdvize:hover {
+  color: #FFF;
+  background-color: #AC2BB3;
+}
 button {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 45%;
 }
@@ -56,7 +62,7 @@ button {
   margin: 0 auto;
   width: 70px;
   text-align: center;
-  position: fixed;
+  position: absolute;
   top: 27px;
   left: 49%;
 }

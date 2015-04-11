@@ -10,13 +10,10 @@
 {% block body %}
     <header>
         <div class="container">
-
             <img src="{{ asset('img/logo.png') }}" alt="iAdvize Logo"/>
-            
             <button class="btn btn-iAdvize" ng-click="updateVdm()" ng-hide="loading">
                 Récupération de VDM
             </button>
-
             <div class="spinner" ng-show="loading">
                 <div class="bounce1"></div>
                 <div class="bounce2"></div>

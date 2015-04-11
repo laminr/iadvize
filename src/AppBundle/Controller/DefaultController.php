@@ -53,7 +53,7 @@ class DefaultController extends Controller
         $curl = new CurlManager();
 
         $howMany = 0;
-        while ($howMany < 200) {
+        while ($howMany <= 200) {
 
             $html = $curl->getData( $urlHome.($howMany >0 ? "?page=".$howMany : ""));
             $crawler = new Crawler($html);
@@ -63,11 +63,13 @@ class DefaultController extends Controller
 
                 $vdm = VdmBusiness::parseOneVdm($node);
                 if ($vdm->getContent() != "") {
+
                     $em->persist($vdm);
                     $em->flush();
+
+                    $howMany++;
                 }
-                
-                $howMany++;
+
                 if ($howMany == 200) break;
             }
         }
