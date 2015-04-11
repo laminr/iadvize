@@ -75,7 +75,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->redirect($this->generateUrl('_vdm'));
+        return $this->redirect($this->generateUrl('vdm'));
     }
 
     /**
