@@ -1,45 +1,30 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+{% endblock %}
+
 {% block body -%}
-    <h1>Vdm list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Content</th>
-                <th>When</th>
-                <th>Author</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+        <h1>Vdm list</h1>
         {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('vdm_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.content }}</td>
-                <td>{% if entity.when %}{{ entity.when|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.author }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('vdm_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('vdm_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
+            <div class="col-sm-4">
+                <div class="vdm">
+                    <div class="content">
+                        {{ entity.content }}
+                    </div>
+                    <div>
+                        <span>
+                            {{ entity.when|date('d-m-Y H:i') }} | {{ entity.author }}
+                        </span>
+                        <span>
+                            id : {{ entity.id }}
+                        </span>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
-        <ul>
-        <li>
-            <a href="{{ path('vdm_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}

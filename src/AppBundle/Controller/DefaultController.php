@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
 
-
     /**
      * @Route("/", name="_homepage")
      */
@@ -25,7 +24,6 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $publics = $em->getRepository(Vdm::CLASS_NAME)->findAll();
-
 
         return $this->render('AppBundle::index.html.twig', array("me" => "Thibault"));
     }
@@ -37,7 +35,6 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $publics = $em->getRepository(Vdm::CLASS_NAME)->findAll();
-
 
         return new JsonResponse($publics);
     }
@@ -75,7 +72,7 @@ class DefaultController extends Controller
             }
         }
 
-        return $this->redirect($this->generateUrl('vdm'));
+        return new JsonResponse(["request" => "done"]);
     }
 
     /**
