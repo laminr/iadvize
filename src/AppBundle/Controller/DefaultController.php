@@ -53,7 +53,7 @@ class DefaultController extends Controller
         $curl = new CurlManager();
 
         $howMany = 0;
-        while ($howMany <= 200) {
+        while ($howMany < 200) {
 
             $html = $curl->getData( $urlHome.($howMany >0 ? "?page=".$howMany : ""));
             $crawler = new Crawler($html);
