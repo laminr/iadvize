@@ -37,10 +37,10 @@ header {
 }
 .vdm div + div span {
   display: inline-block;
-  width: 60%;
+  width: 70%;
 }
 .vdm div + div span + span {
-  width: 39%;
+  width: 29%;
   text-align: right;
 }
 .btn-iAdvize {
